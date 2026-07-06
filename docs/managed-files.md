@@ -4,7 +4,7 @@ This repository tracks portable cmux settings only.
 
 ## Included
 
-- `config/cmux/cmux.json`
+- `cmux.json`
   - Source: `~/.config/cmux/cmux.json`
   - cmux JSONC settings file.
 - `app-support/com.cmuxterm.app/config.ghostty`
@@ -28,4 +28,3 @@ These files are intentionally not tracked:
 - `~/Library/Preferences/com.cmuxterm.app.plist`
 
 They contain local sessions, logs, browser history, sockets, telemetry/cache data, window geometry, machine-specific identifiers, or values that are safer to leave per-device.
-

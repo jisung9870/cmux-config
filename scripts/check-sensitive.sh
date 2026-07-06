@@ -14,12 +14,12 @@ if rg -n --hidden --glob '!.git/**' \
 fi
 
 echo "Checking for uncommented sensitive cmux keys..."
-if [ -f config/cmux/cmux.json ]; then
+if [ -f cmux.json ]; then
   if awk '
     /^[[:space:]]*\/\// { next }
     /^[[:space:]]*"(.*[Pp]assword.*|.*[Tt]oken.*|.*[Ss]ecret.*|.*[Aa][Pp][Ii].*[Kk]ey.*)"[[:space:]]*:/ { print FILENAME ":" FNR ":" $0; found=1 }
     END { exit found ? 0 : 1 }
-  ' config/cmux/cmux.json; then
+  ' cmux.json; then
     failed=1
   fi
 fi
@@ -30,4 +30,3 @@ if [ "$failed" -ne 0 ]; then
 fi
 
 echo "No obvious sensitive data found."
-

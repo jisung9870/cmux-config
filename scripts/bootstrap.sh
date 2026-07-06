@@ -59,9 +59,8 @@ install_file() {
   fi
 }
 
-install_file "$repo_root/config/cmux/cmux.json" "$HOME/.config/cmux/cmux.json"
+install_file "$repo_root/cmux.json" "$HOME/.config/cmux/cmux.json"
 install_file "$repo_root/app-support/com.cmuxterm.app/config.ghostty" "$HOME/Library/Application Support/com.cmuxterm.app/config.ghostty"
 install_file "$repo_root/app-support/com.cmuxterm.app/config.synced-preview" "$HOME/Library/Application Support/com.cmuxterm.app/config.synced-preview"
 
 echo "cmux settings installed. Restart cmux if it was already running."
-

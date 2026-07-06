@@ -25,9 +25,8 @@ copy_from_local() {
   echo "updated: $repo_path"
 }
 
-copy_from_local "$HOME/.config/cmux/cmux.json" "$repo_root/config/cmux/cmux.json"
+copy_from_local "$HOME/.config/cmux/cmux.json" "$repo_root/cmux.json"
 copy_from_local "$HOME/Library/Application Support/com.cmuxterm.app/config.ghostty" "$repo_root/app-support/com.cmuxterm.app/config.ghostty"
 copy_from_local "$HOME/Library/Application Support/com.cmuxterm.app/config.synced-preview" "$repo_root/app-support/com.cmuxterm.app/config.synced-preview"
 
 "$repo_root/scripts/check-sensitive.sh"
-
