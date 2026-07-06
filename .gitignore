@@ -1,0 +1,17 @@
+.DS_Store
+*.bak
+*.backup.*
+*.tmp
+*.log
+*.lock
+*.sock
+
+# cmux runtime/session state. Keep this repo limited to portable settings.
+*.db
+*.db-shm
+*.db-wal
+*.jsonl
+browser_history.json
+phc_*/
+runtime/
+
