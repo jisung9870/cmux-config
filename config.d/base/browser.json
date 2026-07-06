@@ -1,0 +1,18 @@
+{
+  "browser": {
+    "defaultSearchEngine": "google",
+    "openTerminalLinksInCmuxBrowser": true,
+    "interceptTerminalOpenCommandInCmuxBrowser": true,
+    "askWhereToSaveDownloads": true,
+    "discardHiddenWebViews": true,
+    "hiddenWebViewDiscardDelaySeconds": 300,
+    "insecureHttpHostsAllowedInEmbeddedBrowser": [
+      "localhost",
+      "*.localhost",
+      "127.0.0.1",
+      "::1",
+      "0.0.0.0",
+      "*.localtest.me"
+    ]
+  }
+}

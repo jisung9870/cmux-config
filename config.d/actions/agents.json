@@ -1,0 +1,51 @@
+{
+  "agent.codex": {
+    "type": "command",
+    "title": "Codex",
+    "subtitle": "Start Codex in a new tab",
+    "keywords": [
+      "agent",
+      "ai",
+      "codex"
+    ],
+    "command": "codex",
+    "target": "newTabInCurrentPane",
+    "icon": {
+      "type": "symbol",
+      "name": "sparkles"
+    }
+  },
+  "agent.claude": {
+    "type": "command",
+    "title": "Claude",
+    "subtitle": "Start Claude Code in a new tab",
+    "keywords": [
+      "agent",
+      "ai",
+      "claude"
+    ],
+    "command": "claude",
+    "target": "newTabInCurrentPane",
+    "icon": {
+      "type": "symbol",
+      "name": "brain.head.profile"
+    }
+  },
+  "binbox.doctor": {
+    "type": "command",
+    "title": "Binbox Doctor",
+    "subtitle": "Check binbox dependencies",
+    "keywords": [
+      "bb",
+      "binbox",
+      "doctor",
+      "check"
+    ],
+    "command": "bb doctor",
+    "target": "newTabInCurrentPane",
+    "icon": {
+      "type": "symbol",
+      "name": "stethoscope"
+    }
+  }
+}

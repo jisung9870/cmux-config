@@ -1,7 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/manaflow-ai/cmux/main/web/data/cmux.schema.json",
   "schemaVersion": 1,
-
   "app": {
     "appearance": "system",
     "language": "system",
@@ -15,7 +14,6 @@
     "sendAnonymousTelemetry": false,
     "newWorkspacePlacement": "afterCurrent"
   },
-
   "terminal": {
     "autoResumeAgentSessions": true,
     "showScrollBar": true,
@@ -28,7 +26,6 @@
       "enabled": false
     }
   },
-
   "notifications": {
     "agentPermissionPrompt": true,
     "agentTurnComplete": "whenIdle",
@@ -38,7 +35,6 @@
     "unreadPaneRing": true,
     "paneFlash": true
   },
-
   "sidebar": {
     "showPorts": true,
     "showSSH": true,
@@ -55,7 +51,6 @@
     "showCustomMetadata": true,
     "branchLayout": "vertical"
   },
-
   "automation": {
     "socketControlMode": "cmuxOnly",
     "claudeCodeIntegration": true,
@@ -66,7 +61,6 @@
     "portBase": 9100,
     "portRange": 20
   },
-
   "browser": {
     "defaultSearchEngine": "google",
     "openTerminalLinksInCmuxBrowser": true,
@@ -83,7 +77,6 @@
       "*.localtest.me"
     ]
   },
-
   "workspaceGroups": {
     "newWorkspacePlacement": "afterCurrent",
     "byCwd": {
@@ -124,105 +117,165 @@
       }
     }
   },
-
   "shortcuts": {
     "when": {
       "selectWorkspaceByNumber": "!sidebarFocus",
       "selectSurfaceByNumber": "!sidebarFocus"
     }
   },
-
   "fileExplorer": {
     "doubleClickAction": "preferredEditor"
   },
-
   "diffViewer": {
     "defaultLayout": "split"
   },
-
   "markdown": {
     "fontSize": 15,
     "maxWidth": 980
   },
-
   "actions": {
     "agent.codex": {
       "type": "command",
       "title": "Codex",
       "subtitle": "Start Codex in a new tab",
-      "keywords": ["agent", "ai", "codex"],
+      "keywords": [
+        "agent",
+        "ai",
+        "codex"
+      ],
       "command": "codex",
       "target": "newTabInCurrentPane",
-      "icon": { "type": "symbol", "name": "sparkles" }
+      "icon": {
+        "type": "symbol",
+        "name": "sparkles"
+      }
     },
     "agent.claude": {
       "type": "command",
       "title": "Claude",
       "subtitle": "Start Claude Code in a new tab",
-      "keywords": ["agent", "ai", "claude"],
+      "keywords": [
+        "agent",
+        "ai",
+        "claude"
+      ],
       "command": "claude",
       "target": "newTabInCurrentPane",
-      "icon": { "type": "symbol", "name": "brain.head.profile" }
+      "icon": {
+        "type": "symbol",
+        "name": "brain.head.profile"
+      }
     },
     "binbox.doctor": {
       "type": "command",
       "title": "Binbox Doctor",
       "subtitle": "Check binbox dependencies",
-      "keywords": ["bb", "binbox", "doctor", "check"],
+      "keywords": [
+        "bb",
+        "binbox",
+        "doctor",
+        "check"
+      ],
       "command": "bb doctor",
       "target": "newTabInCurrentPane",
-      "icon": { "type": "symbol", "name": "stethoscope" }
+      "icon": {
+        "type": "symbol",
+        "name": "stethoscope"
+      }
     },
     "workspace.binbox": {
       "type": "workspaceCommand",
       "title": "Open binbox",
       "subtitle": "Work on personal CLI tools",
-      "keywords": ["bb", "binbox", "tools"],
+      "keywords": [
+        "bb",
+        "binbox",
+        "tools"
+      ],
       "commandName": "Open binbox",
-      "icon": { "type": "symbol", "name": "shippingbox" }
+      "icon": {
+        "type": "symbol",
+        "name": "shippingbox"
+      }
     },
     "workspace.nvim": {
       "type": "workspaceCommand",
       "title": "Open Neovim Config",
       "subtitle": "Work on LazyVim configuration",
-      "keywords": ["nvim", "neovim", "lazyvim"],
+      "keywords": [
+        "nvim",
+        "neovim",
+        "lazyvim"
+      ],
       "commandName": "Open Neovim Config",
-      "icon": { "type": "symbol", "name": "keyboard" }
+      "icon": {
+        "type": "symbol",
+        "name": "keyboard"
+      }
     },
     "workspace.go": {
       "type": "workspaceCommand",
       "title": "Go Dev",
       "subtitle": "Open a Go development layout in the current directory",
-      "keywords": ["go", "golang", "test"],
+      "keywords": [
+        "go",
+        "golang",
+        "test"
+      ],
       "commandName": "Go Dev",
-      "icon": { "type": "symbol", "name": "chevron.left.forwardslash.chevron.right" }
+      "icon": {
+        "type": "symbol",
+        "name": "chevron.left.forwardslash.chevron.right"
+      }
     },
     "workspace.python": {
       "type": "workspaceCommand",
       "title": "Python Dev",
       "subtitle": "Open a Python development layout in the current directory",
-      "keywords": ["python", "pytest", "venv"],
+      "keywords": [
+        "python",
+        "pytest",
+        "venv"
+      ],
       "commandName": "Python Dev",
-      "icon": { "type": "symbol", "name": "curlybraces" }
+      "icon": {
+        "type": "symbol",
+        "name": "curlybraces"
+      }
     },
     "workspace.terraform": {
       "type": "workspaceCommand",
       "title": "Terraform Ops",
       "subtitle": "Open Terraform plan and apply workflow panes",
-      "keywords": ["terraform", "tfplan", "tfsum", "tfapply"],
+      "keywords": [
+        "terraform",
+        "tfplan",
+        "tfsum",
+        "tfapply"
+      ],
       "commandName": "Terraform Ops",
-      "icon": { "type": "symbol", "name": "building.columns" }
+      "icon": {
+        "type": "symbol",
+        "name": "building.columns"
+      }
     },
     "workspace.kubernetes": {
       "type": "workspaceCommand",
       "title": "Kubernetes Ops",
       "subtitle": "Open Kubernetes context, logs, and shell panes",
-      "keywords": ["kubernetes", "k8s", "kubectl", "logs"],
+      "keywords": [
+        "kubernetes",
+        "k8s",
+        "kubectl",
+        "logs"
+      ],
       "commandName": "Kubernetes Ops",
-      "icon": { "type": "symbol", "name": "network" }
+      "icon": {
+        "type": "symbol",
+        "name": "network"
+      }
     }
   },
-
   "ui": {
     "surfaceTabBar": {
       "buttons": [
@@ -239,23 +292,31 @@
       "contextMenu": [
         "workspace.binbox",
         "workspace.nvim",
-        { "type": "separator" },
+        {
+          "type": "separator"
+        },
         "workspace.go",
         "workspace.python",
         "workspace.terraform",
         "workspace.kubernetes",
-        { "type": "separator" },
+        {
+          "type": "separator"
+        },
         "cmux.newTerminal",
         "cmux.newBrowser"
       ]
     }
   },
-
   "commands": [
     {
       "name": "Open binbox",
       "description": "Work on the personal bb/binbox CLI repository.",
-      "keywords": ["bb", "binbox", "tools", "cli"],
+      "keywords": [
+        "bb",
+        "binbox",
+        "tools",
+        "cli"
+      ],
       "workspace": {
         "name": "binbox",
         "cwd": "~/binbox",
@@ -311,7 +372,12 @@
     {
       "name": "Open Neovim Config",
       "description": "Work on the LazyVim configuration and local help docs.",
-      "keywords": ["nvim", "neovim", "lazyvim", "editor"],
+      "keywords": [
+        "nvim",
+        "neovim",
+        "lazyvim",
+        "editor"
+      ],
       "workspace": {
         "name": "nvim-config",
         "cwd": "~/.config/nvim",
@@ -367,7 +433,12 @@
     {
       "name": "Go Dev",
       "description": "Open editor, shell, and test/log panes for Go work in the current directory.",
-      "keywords": ["go", "golang", "test", "dev"],
+      "keywords": [
+        "go",
+        "golang",
+        "test",
+        "dev"
+      ],
       "workspace": {
         "name": "go-dev",
         "cwd": ".",
@@ -423,7 +494,12 @@
     {
       "name": "Python Dev",
       "description": "Open editor, shell, and venv/test panes for Python work in the current directory.",
-      "keywords": ["python", "pytest", "venv", "dev"],
+      "keywords": [
+        "python",
+        "pytest",
+        "venv",
+        "dev"
+      ],
       "workspace": {
         "name": "python-dev",
         "cwd": ".",
@@ -479,7 +555,13 @@
     {
       "name": "Terraform Ops",
       "description": "Open editor and binbox Terraform workflow panes in the current directory.",
-      "keywords": ["terraform", "tf", "tfplan", "tfsum", "tfapply"],
+      "keywords": [
+        "terraform",
+        "tf",
+        "tfplan",
+        "tfsum",
+        "tfapply"
+      ],
       "workspace": {
         "name": "terraform-ops",
         "cwd": ".",
@@ -535,7 +617,13 @@
     {
       "name": "Kubernetes Ops",
       "description": "Open binbox Kubernetes helper panes in the current directory.",
-      "keywords": ["kubernetes", "k8s", "kubectl", "logs", "pod"],
+      "keywords": [
+        "kubernetes",
+        "k8s",
+        "kubectl",
+        "logs",
+        "pod"
+      ],
       "workspace": {
         "name": "kubernetes-ops",
         "cwd": ".",

@@ -1,0 +1,42 @@
+{
+  "workspaceGroups": {
+    "newWorkspacePlacement": "afterCurrent",
+    "byCwd": {
+      "~/home/projects": {
+        "color": "#1565C0",
+        "icon": "folder.fill",
+        "newWorkspacePlacement": "afterCurrent"
+      },
+      "~/home/lab": {
+        "color": "#006B6B",
+        "icon": "testtube.2",
+        "newWorkspacePlacement": "afterCurrent"
+      },
+      "~/home/poc": {
+        "color": "#7D6608",
+        "icon": "lightbulb.fill",
+        "newWorkspacePlacement": "afterCurrent"
+      },
+      "~/home/work-history": {
+        "color": "#6A1B9A",
+        "icon": "doc.text.fill",
+        "newWorkspacePlacement": "afterCurrent"
+      },
+      "~/binbox": {
+        "color": "#196F3D",
+        "icon": "terminal.fill",
+        "newWorkspacePlacement": "afterCurrent"
+      },
+      "~/.config/nvim": {
+        "color": "#4A5C18",
+        "icon": "pencil.and.outline",
+        "newWorkspacePlacement": "afterCurrent"
+      },
+      "~/.config/cmux": {
+        "color": "#A04000",
+        "icon": "switch.2",
+        "newWorkspacePlacement": "afterCurrent"
+      }
+    }
+  }
+}

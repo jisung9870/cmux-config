@@ -1,6 +1,6 @@
 # cmux cheatsheet
 
-이 문서는 이 repo의 `cmux.json` 기준으로 자주 쓰는 조작만 모은 빠른 참고용입니다.
+이 문서는 이 repo의 generated `cmux.json` 기준으로 자주 쓰는 조작만 모은 빠른 참고용입니다.
 cmux는 tmux, Neovim, binbox를 대체하지 않고 여러 작업판을 묶는 상위 진입점으로 씁니다.
 
 ## 1분 시작
@@ -52,6 +52,8 @@ fzf 기반 명령은 workspace가 열릴 때 자동 실행하지 않습니다. p
 ## 자주 쓰는 CLI
 
 ```sh
+python3 scripts/build-config.py
+./scripts/check-config.sh
 cmux config check
 cmux reload-config
 cmux list-workspaces
@@ -61,6 +63,8 @@ cmux browser open http://localhost:3000
 cmux open README.md
 ```
 
+- `python3 scripts/build-config.py`: `config.d/` source fragment에서 `cmux.json`을 재생성.
+- `./scripts/check-config.sh`: generated output drift, JSON 문법, cmux validation, sensitive scan 확인.
 - `cmux list-workspaces`: 현재 workspace 목록 확인.
 - `cmux tree`: window/workspace/pane/surface 구조 확인.
 - `cmux jump-to-unread`: 읽지 않은 알림으로 이동.
@@ -79,15 +83,15 @@ cmux open README.md
 ## 문제 해결
 
 ```sh
-cmux config check
+python3 scripts/build-config.py --check
+./scripts/check-config.sh
 cmux settings path
 cmux reload-config
-./scripts/check-sensitive.sh
 ```
 
 - `cmux reload-config`가 `Broken pipe`로 실패하면 cmux 앱을 재시작합니다.
 - `socket not found`가 나오면 cmux 앱이 실행 중인지 확인합니다.
-- Command Palette에 새 항목이 안 보이면 `cmux config check` 후 앱 재시작 또는 reload를 합니다.
+- Command Palette에 새 항목이 안 보이면 `./scripts/check-config.sh` 후 앱 재시작 또는 reload를 합니다.
 - `bb`가 없다고 나오면 `~/binbox/bb setup` 후 새 shell에서 다시 시도합니다.
 - agent 버튼이 실패하면 `codex` 또는 `claude`가 PATH에 있는지 확인합니다.
 
@@ -96,3 +100,4 @@ cmux reload-config
 - session restore approval, socket password, browser history를 Git에 넣지 않습니다.
 - cmux command에서 zsh alias에 의존하지 않습니다. 항상 `bb <tool>` 형태를 씁니다.
 - 전역 설정에 프로젝트 전용 build/test command를 넣지 않습니다. 프로젝트별 `.cmux/cmux.json`에 둡니다.
+- `cmux.json`을 직접 수정하지 않습니다. `config.d/` fragment를 수정한 뒤 build합니다.

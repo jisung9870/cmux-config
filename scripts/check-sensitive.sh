@@ -14,12 +14,22 @@ if rg -n --hidden --glob '!.git/**' \
 fi
 
 echo "Checking for uncommented sensitive cmux keys..."
+sensitive_json_files=()
 if [ -f cmux.json ]; then
+  sensitive_json_files+=(cmux.json)
+fi
+if [ -d config.d ]; then
+  while IFS= read -r -d '' file; do
+    sensitive_json_files+=("$file")
+  done < <(find config.d -type f -name '*.json' -print0)
+fi
+
+if [ "${#sensitive_json_files[@]}" -gt 0 ]; then
   if awk '
     /^[[:space:]]*\/\// { next }
     /^[[:space:]]*"(.*[Pp]assword.*|.*[Tt]oken.*|.*[Ss]ecret.*|.*[Aa][Pp][Ii].*[Kk]ey.*)"[[:space:]]*:/ { print FILENAME ":" FNR ":" $0; found=1 }
     END { exit found ? 0 : 1 }
-  ' cmux.json; then
+  ' "${sensitive_json_files[@]}"; then
     failed=1
   fi
 fi

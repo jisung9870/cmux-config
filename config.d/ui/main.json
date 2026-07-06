@@ -1,0 +1,31 @@
+{
+  "surfaceTabBar": {
+    "buttons": [
+      "cmux.newTerminal",
+      "cmux.newBrowser",
+      "cmux.splitRight",
+      "cmux.splitDown",
+      "agent.codex",
+      "agent.claude",
+      "binbox.doctor"
+    ]
+  },
+  "newWorkspace": {
+    "contextMenu": [
+      "workspace.binbox",
+      "workspace.nvim",
+      {
+        "type": "separator"
+      },
+      "workspace.go",
+      "workspace.python",
+      "workspace.terraform",
+      "workspace.kubernetes",
+      {
+        "type": "separator"
+      },
+      "cmux.newTerminal",
+      "cmux.newBrowser"
+    ]
+  }
+}

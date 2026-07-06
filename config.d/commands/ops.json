@@ -1,0 +1,126 @@
+[
+  {
+    "name": "Terraform Ops",
+    "description": "Open editor and binbox Terraform workflow panes in the current directory.",
+    "keywords": [
+      "terraform",
+      "tf",
+      "tfplan",
+      "tfsum",
+      "tfapply"
+    ],
+    "workspace": {
+      "name": "terraform-ops",
+      "cwd": ".",
+      "color": "#6A1B9A",
+      "layout": {
+        "direction": "horizontal",
+        "split": 0.5,
+        "children": [
+          {
+            "pane": {
+              "surfaces": [
+                {
+                  "type": "terminal",
+                  "name": "nvim",
+                  "command": "nvim",
+                  "focus": true
+                }
+              ]
+            }
+          },
+          {
+            "direction": "vertical",
+            "split": 0.5,
+            "children": [
+              {
+                "pane": {
+                  "surfaces": [
+                    {
+                      "type": "terminal",
+                      "name": "plan",
+                      "command": "printf 'Terraform flow:\\n  bb tfplan\\n  bb tfsum tree\\n  bb tfsum md plan-summary.md\\n  bb tfapply session 15\\n  bb tfapply\\n\\n'; exec ${SHELL:-/bin/zsh} -l"
+                    }
+                  ]
+                }
+              },
+              {
+                "pane": {
+                  "surfaces": [
+                    {
+                      "type": "terminal",
+                      "name": "shell",
+                      "command": "printf 'Ready for Terraform logs, providers, or review commands.\\n\\n'; exec ${SHELL:-/bin/zsh} -l"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "Kubernetes Ops",
+    "description": "Open binbox Kubernetes helper panes in the current directory.",
+    "keywords": [
+      "kubernetes",
+      "k8s",
+      "kubectl",
+      "logs",
+      "pod"
+    ],
+    "workspace": {
+      "name": "kubernetes-ops",
+      "cwd": ".",
+      "color": "#1565C0",
+      "layout": {
+        "direction": "horizontal",
+        "split": 0.34,
+        "children": [
+          {
+            "pane": {
+              "surfaces": [
+                {
+                  "type": "terminal",
+                  "name": "context",
+                  "command": "printf 'Kubernetes context:\\n  bb kctx\\n  bb kns\\n  kubectl config current-context\\n\\n'; exec ${SHELL:-/bin/zsh} -l",
+                  "focus": true
+                }
+              ]
+            }
+          },
+          {
+            "direction": "vertical",
+            "split": 0.5,
+            "children": [
+              {
+                "pane": {
+                  "surfaces": [
+                    {
+                      "type": "terminal",
+                      "name": "logs",
+                      "command": "printf 'Kubernetes logs:\\n  bb klog\\n  bb klog -n <namespace>\\n\\n'; exec ${SHELL:-/bin/zsh} -l"
+                    }
+                  ]
+                }
+              },
+              {
+                "pane": {
+                  "surfaces": [
+                    {
+                      "type": "terminal",
+                      "name": "shell",
+                      "command": "printf 'Kubernetes shell/port-forward:\\n  bb kexec\\n  bb kpf\\n  kubectl get pods -A\\n\\n'; exec ${SHELL:-/bin/zsh} -l"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+]

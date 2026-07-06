@@ -1,0 +1,14 @@
+{
+  "terminal": {
+    "autoResumeAgentSessions": true,
+    "showScrollBar": true,
+    "rendererRealization": {
+      "enabled": true,
+      "idleSeconds": 30,
+      "maxWarmRenderers": 12
+    },
+    "agentHibernation": {
+      "enabled": false
+    }
+  }
+}

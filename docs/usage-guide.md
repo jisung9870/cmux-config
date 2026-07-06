@@ -96,22 +96,30 @@ localhost 계열 HTTP는 warning 없이 열리도록 허용합니다.
 
 ## 설정 변경 루틴
 
-1. `cmux.json`을 수정합니다.
-2. 문법과 설정을 확인합니다.
+1. `config.d/` 아래 역할별 JSON fragment를 수정합니다.
+2. generated output인 `cmux.json`을 재생성합니다.
 
 ```sh
-cmux config check
-./scripts/check-sensitive.sh
+python3 scripts/build-config.py
 ```
 
-3. 실행 중인 앱에 반영합니다.
+3. generated output drift, JSON 문법, cmux validation, sensitive key scan을 확인합니다.
+
+```sh
+./scripts/check-config.sh
+```
+
+4. 실행 중인 앱에 반영합니다.
 
 ```sh
 cmux reload-config
 ```
 
 `Broken pipe`나 socket 오류가 나면 cmux 앱을 재시작합니다. 설정 파일 자체가 유효한지는
-`cmux config check` 결과를 기준으로 판단합니다.
+`./scripts/check-config.sh` 결과를 기준으로 판단합니다.
+
+`cmux.json`은 cmux가 읽는 generated output입니다. 직접 수정하지 않고, 변경 내용은
+`config.d/` source fragment에 남깁니다.
 
 ## 프로젝트별 설정
 

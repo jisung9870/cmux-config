@@ -1,0 +1,94 @@
+{
+  "workspace.binbox": {
+    "type": "workspaceCommand",
+    "title": "Open binbox",
+    "subtitle": "Work on personal CLI tools",
+    "keywords": [
+      "bb",
+      "binbox",
+      "tools"
+    ],
+    "commandName": "Open binbox",
+    "icon": {
+      "type": "symbol",
+      "name": "shippingbox"
+    }
+  },
+  "workspace.nvim": {
+    "type": "workspaceCommand",
+    "title": "Open Neovim Config",
+    "subtitle": "Work on LazyVim configuration",
+    "keywords": [
+      "nvim",
+      "neovim",
+      "lazyvim"
+    ],
+    "commandName": "Open Neovim Config",
+    "icon": {
+      "type": "symbol",
+      "name": "keyboard"
+    }
+  },
+  "workspace.go": {
+    "type": "workspaceCommand",
+    "title": "Go Dev",
+    "subtitle": "Open a Go development layout in the current directory",
+    "keywords": [
+      "go",
+      "golang",
+      "test"
+    ],
+    "commandName": "Go Dev",
+    "icon": {
+      "type": "symbol",
+      "name": "chevron.left.forwardslash.chevron.right"
+    }
+  },
+  "workspace.python": {
+    "type": "workspaceCommand",
+    "title": "Python Dev",
+    "subtitle": "Open a Python development layout in the current directory",
+    "keywords": [
+      "python",
+      "pytest",
+      "venv"
+    ],
+    "commandName": "Python Dev",
+    "icon": {
+      "type": "symbol",
+      "name": "curlybraces"
+    }
+  },
+  "workspace.terraform": {
+    "type": "workspaceCommand",
+    "title": "Terraform Ops",
+    "subtitle": "Open Terraform plan and apply workflow panes",
+    "keywords": [
+      "terraform",
+      "tfplan",
+      "tfsum",
+      "tfapply"
+    ],
+    "commandName": "Terraform Ops",
+    "icon": {
+      "type": "symbol",
+      "name": "building.columns"
+    }
+  },
+  "workspace.kubernetes": {
+    "type": "workspaceCommand",
+    "title": "Kubernetes Ops",
+    "subtitle": "Open Kubernetes context, logs, and shell panes",
+    "keywords": [
+      "kubernetes",
+      "k8s",
+      "kubectl",
+      "logs"
+    ],
+    "commandName": "Kubernetes Ops",
+    "icon": {
+      "type": "symbol",
+      "name": "network"
+    }
+  }
+}

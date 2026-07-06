@@ -1,0 +1,124 @@
+[
+  {
+    "name": "Open binbox",
+    "description": "Work on the personal bb/binbox CLI repository.",
+    "keywords": [
+      "bb",
+      "binbox",
+      "tools",
+      "cli"
+    ],
+    "workspace": {
+      "name": "binbox",
+      "cwd": "~/binbox",
+      "color": "#1565C0",
+      "layout": {
+        "direction": "horizontal",
+        "split": 0.55,
+        "children": [
+          {
+            "pane": {
+              "surfaces": [
+                {
+                  "type": "terminal",
+                  "name": "nvim",
+                  "command": "nvim",
+                  "focus": true
+                }
+              ]
+            }
+          },
+          {
+            "direction": "vertical",
+            "split": 0.5,
+            "children": [
+              {
+                "pane": {
+                  "surfaces": [
+                    {
+                      "type": "terminal",
+                      "name": "shell",
+                      "command": "printf 'binbox commands:\\n  bb list\\n  bb doctor\\n  bb check\\n  bb new <name>\\n\\n'; exec ${SHELL:-/bin/zsh} -l"
+                    }
+                  ]
+                }
+              },
+              {
+                "pane": {
+                  "surfaces": [
+                    {
+                      "type": "terminal",
+                      "name": "bb list",
+                      "command": "bb list; exec ${SHELL:-/bin/zsh} -l"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "Open Neovim Config",
+    "description": "Work on the LazyVim configuration and local help docs.",
+    "keywords": [
+      "nvim",
+      "neovim",
+      "lazyvim",
+      "editor"
+    ],
+    "workspace": {
+      "name": "nvim-config",
+      "cwd": "~/.config/nvim",
+      "color": "#196F3D",
+      "layout": {
+        "direction": "horizontal",
+        "split": 0.55,
+        "children": [
+          {
+            "pane": {
+              "surfaces": [
+                {
+                  "type": "terminal",
+                  "name": "nvim",
+                  "command": "nvim",
+                  "focus": true
+                }
+              ]
+            }
+          },
+          {
+            "direction": "vertical",
+            "split": 0.5,
+            "children": [
+              {
+                "pane": {
+                  "surfaces": [
+                    {
+                      "type": "terminal",
+                      "name": "docs",
+                      "command": "printf 'Neovim docs:\\n  :help nvim-devops-workflow\\n  :help nvim-python-go\\n  :help nvim-terminal-tmux\\n\\n'; exec ${SHELL:-/bin/zsh} -l"
+                    }
+                  ]
+                }
+              },
+              {
+                "pane": {
+                  "surfaces": [
+                    {
+                      "type": "terminal",
+                      "name": "check",
+                      "command": "printf 'Config checks:\\n  ./scripts/test-setup.sh\\n  nvim --headless +checkhealth +qa\\n\\n'; exec ${SHELL:-/bin/zsh} -l"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+]

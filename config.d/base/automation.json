@@ -1,0 +1,12 @@
+{
+  "automation": {
+    "socketControlMode": "cmuxOnly",
+    "claudeCodeIntegration": true,
+    "cursorIntegration": true,
+    "geminiIntegration": true,
+    "workspaceAutoNaming": true,
+    "suppressSubagentNotifications": true,
+    "portBase": 9100,
+    "portRange": 20
+  }
+}

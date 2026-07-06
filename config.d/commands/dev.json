@@ -1,0 +1,124 @@
+[
+  {
+    "name": "Go Dev",
+    "description": "Open editor, shell, and test/log panes for Go work in the current directory.",
+    "keywords": [
+      "go",
+      "golang",
+      "test",
+      "dev"
+    ],
+    "workspace": {
+      "name": "go-dev",
+      "cwd": ".",
+      "color": "#0E6B8C",
+      "layout": {
+        "direction": "horizontal",
+        "split": 0.55,
+        "children": [
+          {
+            "pane": {
+              "surfaces": [
+                {
+                  "type": "terminal",
+                  "name": "nvim",
+                  "command": "nvim",
+                  "focus": true
+                }
+              ]
+            }
+          },
+          {
+            "direction": "vertical",
+            "split": 0.5,
+            "children": [
+              {
+                "pane": {
+                  "surfaces": [
+                    {
+                      "type": "terminal",
+                      "name": "shell",
+                      "command": "printf 'Go flow:\\n  go test ./...\\n  go test ./... -run <TestName>\\n  go run ./...\\n  go env GOMOD\\n\\n'; exec ${SHELL:-/bin/zsh} -l"
+                    }
+                  ]
+                }
+              },
+              {
+                "pane": {
+                  "surfaces": [
+                    {
+                      "type": "terminal",
+                      "name": "test",
+                      "command": "printf 'Ready for Go tests or logs.\\n\\n'; exec ${SHELL:-/bin/zsh} -l"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "Python Dev",
+    "description": "Open editor, shell, and venv/test panes for Python work in the current directory.",
+    "keywords": [
+      "python",
+      "pytest",
+      "venv",
+      "dev"
+    ],
+    "workspace": {
+      "name": "python-dev",
+      "cwd": ".",
+      "color": "#4A5C18",
+      "layout": {
+        "direction": "horizontal",
+        "split": 0.55,
+        "children": [
+          {
+            "pane": {
+              "surfaces": [
+                {
+                  "type": "terminal",
+                  "name": "nvim",
+                  "command": "nvim",
+                  "focus": true
+                }
+              ]
+            }
+          },
+          {
+            "direction": "vertical",
+            "split": 0.5,
+            "children": [
+              {
+                "pane": {
+                  "surfaces": [
+                    {
+                      "type": "terminal",
+                      "name": "shell",
+                      "command": "printf 'Python flow:\\n  python -m venv .venv\\n  source .venv/bin/activate\\n  python -m pytest\\n  python -m ruff check .\\n\\n'; exec ${SHELL:-/bin/zsh} -l"
+                    }
+                  ]
+                }
+              },
+              {
+                "pane": {
+                  "surfaces": [
+                    {
+                      "type": "terminal",
+                      "name": "test",
+                      "command": "printf 'Ready for Python tests or logs.\\n\\n'; exec ${SHELL:-/bin/zsh} -l"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+]

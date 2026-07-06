@@ -1,0 +1,12 @@
+{
+  "fileExplorer": {
+    "doubleClickAction": "preferredEditor"
+  },
+  "diffViewer": {
+    "defaultLayout": "split"
+  },
+  "markdown": {
+    "fontSize": 15,
+    "maxWidth": 980
+  }
+}

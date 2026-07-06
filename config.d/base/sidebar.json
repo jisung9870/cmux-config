@@ -1,0 +1,18 @@
+{
+  "sidebar": {
+    "showPorts": true,
+    "showSSH": true,
+    "showPullRequests": true,
+    "watchGitStatus": true,
+    "makePullRequestsClickable": true,
+    "openPullRequestLinksInCmuxBrowser": true,
+    "openPortLinksInCmuxBrowser": true,
+    "showNotificationMessage": true,
+    "showProgress": true,
+    "showLog": true,
+    "showWorkspaceDescription": true,
+    "showBranchDirectory": true,
+    "showCustomMetadata": true,
+    "branchLayout": "vertical"
+  }
+}

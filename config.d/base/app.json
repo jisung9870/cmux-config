@@ -1,0 +1,17 @@
+{
+  "$schema": "https://raw.githubusercontent.com/manaflow-ai/cmux/main/web/data/cmux.schema.json",
+  "schemaVersion": 1,
+  "app": {
+    "appearance": "system",
+    "language": "system",
+    "confirmQuit": "dirty-only",
+    "warnBeforeClosingTab": true,
+    "workspaceInheritWorkingDirectory": true,
+    "keepWorkspaceOpenWhenClosingLastSurface": true,
+    "commandPaletteSearchesAllSurfaces": true,
+    "openSupportedFilesInCmux": true,
+    "openMarkdownInCmuxViewer": true,
+    "sendAnonymousTelemetry": false,
+    "newWorkspacePlacement": "afterCurrent"
+  }
+}

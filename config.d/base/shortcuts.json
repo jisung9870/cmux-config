@@ -1,0 +1,8 @@
+{
+  "shortcuts": {
+    "when": {
+      "selectWorkspaceByNumber": "!sidebarFocus",
+      "selectSurfaceByNumber": "!sidebarFocus"
+    }
+  }
+}
