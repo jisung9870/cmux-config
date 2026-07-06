@@ -2,6 +2,98 @@
   "$schema": "https://raw.githubusercontent.com/manaflow-ai/cmux/main/web/data/cmux.schema.json",
   "schemaVersion": 1,
 
+  "app": {
+    "appearance": "system",
+    "language": "system",
+    "sendAnonymousTelemetry": false,
+    "confirmQuit": "dirty-only",
+    "warnBeforeClosingTab": true,
+    "workspaceInheritWorkingDirectory": true,
+    "openMarkdownInCmuxViewer": true,
+    "commandPaletteSearchesAllSurfaces": true,
+    "newWorkspacePlacement": "afterCurrent"
+  },
+
+  "terminal": {
+    "autoResumeAgentSessions": true,
+    "showScrollBar": true,
+    "agentHibernation": {
+      "enabled": false
+    },
+    "rendererRealization": {
+      "enabled": true,
+      "idleSeconds": 30,
+      "maxWarmRenderers": 12
+    }
+  },
+
+  "notifications": {
+    "agentPermissionPrompt": true,
+    "agentTurnComplete": "whenIdle",
+    "agentIdleReminder": true,
+    "dockBadge": true,
+    "showInMenuBar": true,
+    "unreadPaneRing": true,
+    "paneFlash": true
+  },
+
+  "browser": {
+    "defaultSearchEngine": "google",
+    "openTerminalLinksInCmuxBrowser": true,
+    "interceptTerminalOpenCommandInCmuxBrowser": true,
+    "askWhereToSaveDownloads": true,
+    "discardHiddenWebViews": true,
+    "hiddenWebViewDiscardDelaySeconds": 300
+  },
+
+  "workspaceGroups": {
+    "newWorkspacePlacement": "afterCurrent",
+    "byCwd": {
+      "~/home/projects": {
+        "color": "#1565C0",
+        "icon": "folder.fill",
+        "newWorkspacePlacement": "afterCurrent"
+      },
+      "~/home/lab": {
+        "color": "#006B6B",
+        "icon": "testtube.2",
+        "newWorkspacePlacement": "afterCurrent"
+      },
+      "~/home/poc": {
+        "color": "#7D6608",
+        "icon": "lightbulb.fill",
+        "newWorkspacePlacement": "afterCurrent"
+      },
+      "~/home/work-history": {
+        "color": "#6A1B9A",
+        "icon": "doc.text.fill",
+        "newWorkspacePlacement": "afterCurrent"
+      },
+      "~/binbox": {
+        "color": "#196F3D",
+        "icon": "terminal.fill",
+        "newWorkspacePlacement": "afterCurrent"
+      },
+      "~/.config/nvim": {
+        "color": "#4A5C18",
+        "icon": "pencil.and.outline",
+        "newWorkspacePlacement": "afterCurrent"
+      },
+      "~/.config/cmux": {
+        "color": "#A04000",
+        "icon": "switch.2",
+        "newWorkspacePlacement": "afterCurrent"
+      }
+    }
+  },
+
+  "shortcuts": {
+    "when": {
+      "selectWorkspaceByNumber": "!sidebarFocus",
+      "selectSurfaceByNumber": "!sidebarFocus"
+    }
+  },
+
   // This file uses JSON with comments (JSONC).
   // Uncomment and edit any setting to make it file-managed.
   // Remove a setting to fall back to the value saved in Settings.
