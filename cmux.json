@@ -5,25 +5,27 @@
   "app": {
     "appearance": "system",
     "language": "system",
-    "sendAnonymousTelemetry": false,
     "confirmQuit": "dirty-only",
     "warnBeforeClosingTab": true,
     "workspaceInheritWorkingDirectory": true,
-    "openMarkdownInCmuxViewer": true,
+    "keepWorkspaceOpenWhenClosingLastSurface": true,
     "commandPaletteSearchesAllSurfaces": true,
+    "openSupportedFilesInCmux": true,
+    "openMarkdownInCmuxViewer": true,
+    "sendAnonymousTelemetry": false,
     "newWorkspacePlacement": "afterCurrent"
   },
 
   "terminal": {
     "autoResumeAgentSessions": true,
     "showScrollBar": true,
-    "agentHibernation": {
-      "enabled": false
-    },
     "rendererRealization": {
       "enabled": true,
       "idleSeconds": 30,
       "maxWarmRenderers": 12
+    },
+    "agentHibernation": {
+      "enabled": false
     }
   },
 
@@ -37,13 +39,49 @@
     "paneFlash": true
   },
 
+  "sidebar": {
+    "showPorts": true,
+    "showSSH": true,
+    "showPullRequests": true,
+    "watchGitStatus": true,
+    "makePullRequestsClickable": true,
+    "openPullRequestLinksInCmuxBrowser": true,
+    "openPortLinksInCmuxBrowser": true,
+    "showNotificationMessage": true,
+    "showProgress": true,
+    "showLog": true,
+    "showWorkspaceDescription": true,
+    "showBranchDirectory": true,
+    "showCustomMetadata": true,
+    "branchLayout": "vertical"
+  },
+
+  "automation": {
+    "socketControlMode": "cmuxOnly",
+    "claudeCodeIntegration": true,
+    "cursorIntegration": true,
+    "geminiIntegration": true,
+    "workspaceAutoNaming": true,
+    "suppressSubagentNotifications": true,
+    "portBase": 9100,
+    "portRange": 20
+  },
+
   "browser": {
     "defaultSearchEngine": "google",
     "openTerminalLinksInCmuxBrowser": true,
     "interceptTerminalOpenCommandInCmuxBrowser": true,
     "askWhereToSaveDownloads": true,
     "discardHiddenWebViews": true,
-    "hiddenWebViewDiscardDelaySeconds": 300
+    "hiddenWebViewDiscardDelaySeconds": 300,
+    "insecureHttpHostsAllowedInEmbeddedBrowser": [
+      "localhost",
+      "*.localhost",
+      "127.0.0.1",
+      "::1",
+      "0.0.0.0",
+      "*.localtest.me"
+    ]
   },
 
   "workspaceGroups": {
@@ -94,209 +132,461 @@
     }
   },
 
-  // This file uses JSON with comments (JSONC).
-  // Uncomment and edit any setting to make it file-managed.
-  // Remove a setting to fall back to the value saved in Settings.
-  // cmux creates this template on launch when ~/.config/cmux/cmux.json is missing.
-  // Legacy settings.json files are read only as fallback for keys not present here.
+  "fileExplorer": {
+    "doubleClickAction": "preferredEditor"
+  },
 
-  //   "app" : {
-  //     "warnBeforeQuit" : true,
-  //     "menuBarOnly" : false,
-  //     "iMessageMode" : false,
-  //     "commandPaletteSearchesAllSurfaces" : false,
-  //     "renameSelectsExistingName" : true,
-  //     "language" : "system",
-  //     "focusPaneOnFirstClick" : false,
-  //     "openSupportedFilesInCmux" : true,
-  //     "appearance" : "system",
-  //     "workspaceInheritWorkingDirectory" : true,
-  //     "preferredEditor" : "",
-  //     "sendAnonymousTelemetry" : true,
-  //     "warnBeforeClosingTab" : true,
-  //     "reorderOnNotification" : true,
-  //     "openMarkdownInCmuxViewer" : false,
-  //     "minimalMode" : false,
-  //     "appIcon" : "automatic",
-  //     "newWorkspacePlacement" : "afterCurrent",
-  //     "keepWorkspaceOpenWhenClosingLastSurface" : false
-  //   },
+  "diffViewer": {
+    "defaultLayout": "split"
+  },
 
-  //   "terminal" : {
-  //     "autoResumeAgentSessions" : true,
-  //     "showScrollBar" : true
-  //   },
+  "markdown": {
+    "fontSize": 15,
+    "maxWidth": 980
+  },
 
-  //   "notifications" : {
-  //     "hooksMode" : "append",
-  //     "customSoundFilePath" : "",
-  //     "sound" : "default",
-  //     "paneFlash" : true,
-  //     "hooks" : [
-  // 
-  //     ],
-  //     "unreadPaneRing" : true,
-  //     "dockBadge" : true,
-  //     "showInMenuBar" : true,
-  //     "command" : ""
-  //   },
+  "actions": {
+    "agent.codex": {
+      "type": "command",
+      "title": "Codex",
+      "subtitle": "Start Codex in a new tab",
+      "keywords": ["agent", "ai", "codex"],
+      "command": "codex",
+      "target": "newTabInCurrentPane",
+      "icon": { "type": "symbol", "name": "sparkles" }
+    },
+    "agent.claude": {
+      "type": "command",
+      "title": "Claude",
+      "subtitle": "Start Claude Code in a new tab",
+      "keywords": ["agent", "ai", "claude"],
+      "command": "claude",
+      "target": "newTabInCurrentPane",
+      "icon": { "type": "symbol", "name": "brain.head.profile" }
+    },
+    "binbox.doctor": {
+      "type": "command",
+      "title": "Binbox Doctor",
+      "subtitle": "Check binbox dependencies",
+      "keywords": ["bb", "binbox", "doctor", "check"],
+      "command": "bb doctor",
+      "target": "newTabInCurrentPane",
+      "icon": { "type": "symbol", "name": "stethoscope" }
+    },
+    "workspace.binbox": {
+      "type": "workspaceCommand",
+      "title": "Open binbox",
+      "subtitle": "Work on personal CLI tools",
+      "keywords": ["bb", "binbox", "tools"],
+      "commandName": "Open binbox",
+      "icon": { "type": "symbol", "name": "shippingbox" }
+    },
+    "workspace.nvim": {
+      "type": "workspaceCommand",
+      "title": "Open Neovim Config",
+      "subtitle": "Work on LazyVim configuration",
+      "keywords": ["nvim", "neovim", "lazyvim"],
+      "commandName": "Open Neovim Config",
+      "icon": { "type": "symbol", "name": "keyboard" }
+    },
+    "workspace.go": {
+      "type": "workspaceCommand",
+      "title": "Go Dev",
+      "subtitle": "Open a Go development layout in the current directory",
+      "keywords": ["go", "golang", "test"],
+      "commandName": "Go Dev",
+      "icon": { "type": "symbol", "name": "chevron.left.forwardslash.chevron.right" }
+    },
+    "workspace.python": {
+      "type": "workspaceCommand",
+      "title": "Python Dev",
+      "subtitle": "Open a Python development layout in the current directory",
+      "keywords": ["python", "pytest", "venv"],
+      "commandName": "Python Dev",
+      "icon": { "type": "symbol", "name": "curlybraces" }
+    },
+    "workspace.terraform": {
+      "type": "workspaceCommand",
+      "title": "Terraform Ops",
+      "subtitle": "Open Terraform plan and apply workflow panes",
+      "keywords": ["terraform", "tfplan", "tfsum", "tfapply"],
+      "commandName": "Terraform Ops",
+      "icon": { "type": "symbol", "name": "building.columns" }
+    },
+    "workspace.kubernetes": {
+      "type": "workspaceCommand",
+      "title": "Kubernetes Ops",
+      "subtitle": "Open Kubernetes context, logs, and shell panes",
+      "keywords": ["kubernetes", "k8s", "kubectl", "logs"],
+      "commandName": "Kubernetes Ops",
+      "icon": { "type": "symbol", "name": "network" }
+    }
+  },
 
-  //   "sidebar" : {
-  //     "hideAllDetails" : false,
-  //     "openPortLinksInCmuxBrowser" : true,
-  //     "showPorts" : true,
-  //     "makePullRequestsClickable" : true,
-  //     "openPullRequestLinksInCmuxBrowser" : true,
-  //     "showNotificationMessage" : true,
-  //     "showSSH" : true,
-  //     "showProgress" : true,
-  //     "showPullRequests" : true,
-  //     "showLog" : true,
-  //     "showWorkspaceDescription" : true,
-  //     "branchLayout" : "vertical",
-  //     "showBranchDirectory" : true,
-  //     "showCustomMetadata" : true
-  //   },
+  "ui": {
+    "surfaceTabBar": {
+      "buttons": [
+        "cmux.newTerminal",
+        "cmux.newBrowser",
+        "cmux.splitRight",
+        "cmux.splitDown",
+        "agent.codex",
+        "agent.claude",
+        "binbox.doctor"
+      ]
+    },
+    "newWorkspace": {
+      "contextMenu": [
+        "workspace.binbox",
+        "workspace.nvim",
+        { "type": "separator" },
+        "workspace.go",
+        "workspace.python",
+        "workspace.terraform",
+        "workspace.kubernetes",
+        { "type": "separator" },
+        "cmux.newTerminal",
+        "cmux.newBrowser"
+      ]
+    }
+  },
 
-  //   "workspaceColors" : {
-  //     "notificationBadgeColor" : null,
-  //     "indicatorStyle" : "leftRail",
-  //     "selectionColor" : null,
-  //     "colors" : {
-  //       "Orange" : "#A04000",
-  //       "Red" : "#C0392B",
-  //       "Olive" : "#4A5C18",
-  //       "Magenta" : "#AD1457",
-  //       "Amber" : "#7D6608",
-  //       "Brown" : "#7B3F00",
-  //       "Crimson" : "#922B21",
-  //       "Charcoal" : "#3E4B5E",
-  //       "Purple" : "#6A1B9A",
-  //       "Aqua" : "#0E6B8C",
-  //       "Indigo" : "#283593",
-  //       "Rose" : "#880E4F",
-  //       "Teal" : "#006B6B",
-  //       "Navy" : "#1A5276",
-  //       "Green" : "#196F3D",
-  //       "Blue" : "#1565C0"
-  //     }
-  //   },
-
-  //   "sidebarAppearance" : {
-  //     "tintOpacity" : 0.17999999999999999,
-  //     "matchTerminalBackground" : false,
-  //     "darkModeTintColor" : null,
-  //     "lightModeTintColor" : null,
-  //     "tintColor" : "#000000"
-  //   },
-
-  //   "automation" : {
-  //     "socketPassword" : "",
-  //     "geminiIntegration" : true,
-  //     "socketControlMode" : "cmuxOnly",
-  //     "portBase" : 9100,
-  //     "claudeCodeIntegration" : true,
-  //     "claudeBinaryPath" : "",
-  //     "ripgrepBinaryPath" : "",
-  //     "cursorIntegration" : true,
-  //     "portRange" : 10
-  //   },
-
-  //   "browser" : {
-  //     "hiddenWebViewDiscardDelaySeconds" : 300,
-  //     "hostsToOpenInEmbeddedBrowser" : [
-  // 
-  //     ],
-  //     "openTerminalLinksInCmuxBrowser" : true,
-  //     "theme" : "system",
-  //     "urlsToAlwaysOpenExternally" : [
-  // 
-  //     ],
-  //     "defaultSearchEngine" : "google",
-  //     "insecureHttpHostsAllowedInEmbeddedBrowser" : [
-  //       "localhost",
-  //       "*.localhost",
-  //       "127.0.0.1",
-  //       "::1",
-  //       "0.0.0.0",
-  //       "*.localtest.me"
-  //     ],
-  //     "interceptTerminalOpenCommandInCmuxBrowser" : true,
-  //     "showImportHintOnBlankTabs" : true,
-  //     "reactGrabVersion" : "0.1.29",
-  //     "showSearchSuggestions" : true,
-  //     "discardHiddenWebViews" : true
-  //   },
-
-  //   "shortcuts" : {
-  //     "bindings" : {
-  //       "splitDown" : "cmd+shift+d",
-  //       "reopenClosedBrowserPanel" : "cmd+shift+t",
-  //       "openBrowser" : "cmd+shift+l",
-  //       "goToWorkspace" : "cmd+p",
-  //       "commandPalettePrevious" : "ctrl+p",
-  //       "prevSurface" : "cmd+shift+[",
-  //       "findPrevious" : "cmd+opt+g",
-  //       "newSurface" : "cmd+t",
-  //       "splitBrowserRight" : "cmd+opt+d",
-  //       "focusRight" : "cmd+opt+→",
-  //       "splitRight" : "cmd+d",
-  //       "splitBrowserDown" : "cmd+shift+opt+d",
-  //       "closeOtherTabsInPane" : "cmd+opt+t",
-  //       "closeWorkspace" : "cmd+shift+w",
-  //       "nextSurface" : "cmd+shift+]",
-  //       "toggleSplitZoom" : "cmd+shift+\r",
-  //       "reloadConfiguration" : "cmd+shift+,",
-  //       "focusDown" : "cmd+opt+↓",
-  //       "newWindow" : "cmd+shift+n",
-  //       "prevSidebarTab" : "cmd+ctrl+[",
-  //       "focusRightSidebar" : "cmd+shift+e",
-  //       "focusLeft" : "cmd+opt+←",
-  //       "browserZoomIn" : "cmd+=",
-  //       "renameTab" : "cmd+r",
-  //       "globalSearch" : "cmd+opt+f",
-  //       "showBrowserJavaScriptConsole" : "cmd+opt+c",
-  //       "editWorkspaceDescription" : "cmd+opt+e",
-  //       "toggleTerminalCopyMode" : "cmd+shift+m",
-  //       "quit" : "cmd+q",
-  //       "hideFind" : "cmd+shift+opt+f",
-  //       "reopenPreviousSession" : "cmd+shift+o",
-  //       "focusUp" : "cmd+opt+↑",
-  //       "openFolder" : "cmd+o",
-  //       "newTab" : "cmd+n",
-  //       "useSelectionForFind" : "cmd+e",
-  //       "selectWorkspaceByNumber" : "cmd+1",
-  //       "toggleFileExplorer" : "cmd+opt+b",
-  //       "browserZoomReset" : "cmd+0",
-  //       "sendFeedback" : "",
-  //       "toggleSidebar" : "cmd+b",
-  //       "focusBrowserAddressBar" : "cmd+l",
-  //       "browserBack" : "cmd+[",
-  //       "browserReload" : "cmd+r",
-  //       "findInDirectory" : "cmd+shift+f",
-  //       "browserZoomOut" : "cmd+-",
-  //       "toggleFullScreen" : "cmd+ctrl+f",
-  //       "toggleBrowserDeveloperTools" : "cmd+opt+i",
-  //       "showHideAllWindows" : "cmd+opt+ctrl+.",
-  //       "commandPaletteNext" : "ctrl+n",
-  //       "findNext" : "cmd+g",
-  //       "find" : "cmd+f",
-  //       "triggerFlash" : "cmd+shift+h",
-  //       "selectSurfaceByNumber" : "ctrl+1",
-  //       "equalizeSplits" : "cmd+ctrl+=",
-  //       "browserForward" : "cmd+]",
-  //       "toggleReactGrab" : "cmd+shift+g",
-  //       "jumpToUnread" : "cmd+shift+u",
-  //       "markOldestUnreadAndJumpNext" : "cmd+ctrl+u",
-  //       "nextSidebarTab" : "cmd+ctrl+]",
-  //       "closeWindow" : "cmd+ctrl+w",
-  //       "closeTab" : "cmd+w",
-  //       "saveFilePreview" : "cmd+s",
-  //       "showNotifications" : "cmd+i",
-  //       "renameWorkspace" : "cmd+shift+r",
-  //       "openSettings" : "cmd+,",
-  //       "commandPalette" : "cmd+shift+p",
-  //       "toggleUnread" : "cmd+opt+u"
-  //     }
-  //   },
+  "commands": [
+    {
+      "name": "Open binbox",
+      "description": "Work on the personal bb/binbox CLI repository.",
+      "keywords": ["bb", "binbox", "tools", "cli"],
+      "workspace": {
+        "name": "binbox",
+        "cwd": "~/binbox",
+        "color": "#1565C0",
+        "layout": {
+          "direction": "horizontal",
+          "split": 0.55,
+          "children": [
+            {
+              "pane": {
+                "surfaces": [
+                  {
+                    "type": "terminal",
+                    "name": "nvim",
+                    "command": "nvim",
+                    "focus": true
+                  }
+                ]
+              }
+            },
+            {
+              "direction": "vertical",
+              "split": 0.5,
+              "children": [
+                {
+                  "pane": {
+                    "surfaces": [
+                      {
+                        "type": "terminal",
+                        "name": "shell",
+                        "command": "printf 'binbox commands:\\n  bb list\\n  bb doctor\\n  bb check\\n  bb new <name>\\n\\n'; exec ${SHELL:-/bin/zsh} -l"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "pane": {
+                    "surfaces": [
+                      {
+                        "type": "terminal",
+                        "name": "bb list",
+                        "command": "bb list; exec ${SHELL:-/bin/zsh} -l"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Open Neovim Config",
+      "description": "Work on the LazyVim configuration and local help docs.",
+      "keywords": ["nvim", "neovim", "lazyvim", "editor"],
+      "workspace": {
+        "name": "nvim-config",
+        "cwd": "~/.config/nvim",
+        "color": "#196F3D",
+        "layout": {
+          "direction": "horizontal",
+          "split": 0.55,
+          "children": [
+            {
+              "pane": {
+                "surfaces": [
+                  {
+                    "type": "terminal",
+                    "name": "nvim",
+                    "command": "nvim",
+                    "focus": true
+                  }
+                ]
+              }
+            },
+            {
+              "direction": "vertical",
+              "split": 0.5,
+              "children": [
+                {
+                  "pane": {
+                    "surfaces": [
+                      {
+                        "type": "terminal",
+                        "name": "docs",
+                        "command": "printf 'Neovim docs:\\n  :help nvim-devops-workflow\\n  :help nvim-python-go\\n  :help nvim-terminal-tmux\\n\\n'; exec ${SHELL:-/bin/zsh} -l"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "pane": {
+                    "surfaces": [
+                      {
+                        "type": "terminal",
+                        "name": "check",
+                        "command": "printf 'Config checks:\\n  ./scripts/test-setup.sh\\n  nvim --headless +checkhealth +qa\\n\\n'; exec ${SHELL:-/bin/zsh} -l"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Go Dev",
+      "description": "Open editor, shell, and test/log panes for Go work in the current directory.",
+      "keywords": ["go", "golang", "test", "dev"],
+      "workspace": {
+        "name": "go-dev",
+        "cwd": ".",
+        "color": "#0E6B8C",
+        "layout": {
+          "direction": "horizontal",
+          "split": 0.55,
+          "children": [
+            {
+              "pane": {
+                "surfaces": [
+                  {
+                    "type": "terminal",
+                    "name": "nvim",
+                    "command": "nvim",
+                    "focus": true
+                  }
+                ]
+              }
+            },
+            {
+              "direction": "vertical",
+              "split": 0.5,
+              "children": [
+                {
+                  "pane": {
+                    "surfaces": [
+                      {
+                        "type": "terminal",
+                        "name": "shell",
+                        "command": "printf 'Go flow:\\n  go test ./...\\n  go test ./... -run <TestName>\\n  go run ./...\\n  go env GOMOD\\n\\n'; exec ${SHELL:-/bin/zsh} -l"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "pane": {
+                    "surfaces": [
+                      {
+                        "type": "terminal",
+                        "name": "test",
+                        "command": "printf 'Ready for Go tests or logs.\\n\\n'; exec ${SHELL:-/bin/zsh} -l"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Python Dev",
+      "description": "Open editor, shell, and venv/test panes for Python work in the current directory.",
+      "keywords": ["python", "pytest", "venv", "dev"],
+      "workspace": {
+        "name": "python-dev",
+        "cwd": ".",
+        "color": "#4A5C18",
+        "layout": {
+          "direction": "horizontal",
+          "split": 0.55,
+          "children": [
+            {
+              "pane": {
+                "surfaces": [
+                  {
+                    "type": "terminal",
+                    "name": "nvim",
+                    "command": "nvim",
+                    "focus": true
+                  }
+                ]
+              }
+            },
+            {
+              "direction": "vertical",
+              "split": 0.5,
+              "children": [
+                {
+                  "pane": {
+                    "surfaces": [
+                      {
+                        "type": "terminal",
+                        "name": "shell",
+                        "command": "printf 'Python flow:\\n  python -m venv .venv\\n  source .venv/bin/activate\\n  python -m pytest\\n  python -m ruff check .\\n\\n'; exec ${SHELL:-/bin/zsh} -l"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "pane": {
+                    "surfaces": [
+                      {
+                        "type": "terminal",
+                        "name": "test",
+                        "command": "printf 'Ready for Python tests or logs.\\n\\n'; exec ${SHELL:-/bin/zsh} -l"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Terraform Ops",
+      "description": "Open editor and binbox Terraform workflow panes in the current directory.",
+      "keywords": ["terraform", "tf", "tfplan", "tfsum", "tfapply"],
+      "workspace": {
+        "name": "terraform-ops",
+        "cwd": ".",
+        "color": "#6A1B9A",
+        "layout": {
+          "direction": "horizontal",
+          "split": 0.5,
+          "children": [
+            {
+              "pane": {
+                "surfaces": [
+                  {
+                    "type": "terminal",
+                    "name": "nvim",
+                    "command": "nvim",
+                    "focus": true
+                  }
+                ]
+              }
+            },
+            {
+              "direction": "vertical",
+              "split": 0.5,
+              "children": [
+                {
+                  "pane": {
+                    "surfaces": [
+                      {
+                        "type": "terminal",
+                        "name": "plan",
+                        "command": "printf 'Terraform flow:\\n  bb tfplan\\n  bb tfsum tree\\n  bb tfsum md plan-summary.md\\n  bb tfapply session 15\\n  bb tfapply\\n\\n'; exec ${SHELL:-/bin/zsh} -l"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "pane": {
+                    "surfaces": [
+                      {
+                        "type": "terminal",
+                        "name": "shell",
+                        "command": "printf 'Ready for Terraform logs, providers, or review commands.\\n\\n'; exec ${SHELL:-/bin/zsh} -l"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Kubernetes Ops",
+      "description": "Open binbox Kubernetes helper panes in the current directory.",
+      "keywords": ["kubernetes", "k8s", "kubectl", "logs", "pod"],
+      "workspace": {
+        "name": "kubernetes-ops",
+        "cwd": ".",
+        "color": "#1565C0",
+        "layout": {
+          "direction": "horizontal",
+          "split": 0.34,
+          "children": [
+            {
+              "pane": {
+                "surfaces": [
+                  {
+                    "type": "terminal",
+                    "name": "context",
+                    "command": "printf 'Kubernetes context:\\n  bb kctx\\n  bb kns\\n  kubectl config current-context\\n\\n'; exec ${SHELL:-/bin/zsh} -l",
+                    "focus": true
+                  }
+                ]
+              }
+            },
+            {
+              "direction": "vertical",
+              "split": 0.5,
+              "children": [
+                {
+                  "pane": {
+                    "surfaces": [
+                      {
+                        "type": "terminal",
+                        "name": "logs",
+                        "command": "printf 'Kubernetes logs:\\n  bb klog\\n  bb klog -n <namespace>\\n\\n'; exec ${SHELL:-/bin/zsh} -l"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "pane": {
+                    "surfaces": [
+                      {
+                        "type": "terminal",
+                        "name": "shell",
+                        "command": "printf 'Kubernetes shell/port-forward:\\n  bb kexec\\n  bb kpf\\n  kubectl get pods -A\\n\\n'; exec ${SHELL:-/bin/zsh} -l"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ]
 }

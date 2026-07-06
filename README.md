@@ -2,6 +2,10 @@
 
 cmux 설정을 GitHub로 관리하고 여러 Mac에서 같은 설정을 쓰기 위한 repo입니다.
 
+이 설정은 `~/.config/nvim`과 `~/binbox`를 전제로 한 보완형 작업판입니다. tmux,
+Neovim, binbox 흐름을 cmux로 대체하지 않고, cmux의 command palette, workspace,
+agent notification, in-app browser를 상위 진입점으로 사용합니다.
+
 ## 사용법
 
 새 장비에서 repo를 실제 cmux 설정 디렉토리로 clone한 뒤:
@@ -25,6 +29,14 @@ cmux의 보조 설정 파일을 연결합니다:
 ./scripts/bootstrap.sh --copy
 ```
 
+적용 후 cmux가 이미 실행 중이면 설정을 다시 읽습니다:
+
+```sh
+cmux reload-config
+```
+
+`cmux` CLI가 아직 PATH에 없으면 앱을 재시작해도 됩니다.
+
 ## 권장 기본 설정
 
 `cmux.json`에는 기본 동작을 크게 바꾸지 않는 보수적 편의 설정만 활성화했습니다.
@@ -35,6 +47,22 @@ cmux의 보조 설정 파일을 연결합니다:
 - Browser: 터미널 링크는 cmux browser에서 열고, 다운로드는 저장 위치를 묻게 설정
 - Workspace groups: `~/home/projects`, `~/home/lab`, `~/home/poc`, `~/home/work-history`, `~/binbox`, `~/.config/nvim`, `~/.config/cmux`를 색상/아이콘으로 구분
 - Shortcuts: sidebar focus 중에는 workspace/surface 번호 선택 단축키가 동작하지 않게 해 입력 충돌을 줄임
+
+## 작업 흐름
+
+Command Palette에서 바로 열 수 있는 전역 작업판을 관리합니다:
+
+- `Open binbox`: `~/binbox`에서 `nvim`, shell, `bb list`를 엽니다.
+- `Open Neovim Config`: `~/.config/nvim`에서 설정과 help 문서 작업을 엽니다.
+- `Go Dev`: 현재 디렉토리 기준 Go 편집/테스트 작업판을 엽니다.
+- `Python Dev`: 현재 디렉토리 기준 Python venv/pytest 작업판을 엽니다.
+- `Terraform Ops`: 현재 디렉토리 기준 `bb tfplan`, `bb tfsum`, `bb tfapply` 흐름을 엽니다.
+- `Kubernetes Ops`: 현재 디렉토리 기준 `bb kctx`, `bb kns`, `bb klog`, `bb kexec`, `bb kpf` 힌트 작업판을 엽니다.
+
+Surface tab bar에는 기본 터미널/브라우저/split 버튼에 더해 `Codex`, `Claude`,
+`Binbox Doctor`를 둡니다. agent 실행은 권한 우회 플래그 없이 기본 명령만 사용합니다.
+
+세부 설명은 [docs/workflows.md](docs/workflows.md)에 정리했습니다.
 
 ## 현재 장비 변경분 가져오기
 
@@ -53,6 +81,9 @@ git status --short
 ```
 
 cmux 적용 확인은 앱에서 설정 reload를 실행하거나 cmux를 재시작한 뒤 확인합니다.
+
+앱에서 생성되는 session restore 승인, 브라우저 기록, socket, password/token류는 repo에
+넣지 않습니다. `scripts/check-sensitive.sh`는 커밋 전 항상 실행합니다.
 
 ## GitHub 동기화 흐름
 

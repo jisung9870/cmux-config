@@ -7,6 +7,10 @@ This repository tracks portable cmux settings only.
 - `cmux.json`
   - Source: `~/.config/cmux/cmux.json`
   - cmux JSONC settings file.
+  - Tracks portable app, terminal, notification, browser, action, command palette,
+    and workspace layout settings.
+  - Commands intentionally call `bb <tool>` instead of shell aliases, because cmux
+    shells may not source interactive rc files before command execution.
 - `app-support/com.cmuxterm.app/config.ghostty`
   - Source: `~/Library/Application Support/com.cmuxterm.app/config.ghostty`
   - cmux terminal theme settings.
@@ -28,3 +32,10 @@ These files are intentionally not tracked:
 - `~/Library/Preferences/com.cmuxterm.app.plist`
 
 They contain local sessions, logs, browser history, sockets, telemetry/cache data, window geometry, machine-specific identifiers, or values that are safer to leave per-device.
+
+Also do not track:
+
+- `terminal.resumeCommands` records copied from a live machine, because they include
+  signed local approvals and may be tied to paths or environment values.
+- `automation.socketPassword` or any password/token/key fields.
+- Machine-specific editor paths unless every Mac uses the same command.
