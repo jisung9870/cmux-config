@@ -88,8 +88,8 @@ Surface tab bar에는 기본 터미널/브라우저/split 버튼에 더해 `Code
 
 세부 설명은 [docs/workflows.md](docs/workflows.md)에 정리했습니다.
 
-cmux를 실제로 어떻게 쓰면 되는지 빠르게 보려면 [docs/cheatsheet.md](docs/cheatsheet.md)를 먼저 봅니다.
-작업별 운영 흐름은 [docs/usage-guide.md](docs/usage-guide.md)에 정리했습니다.
+cmux를 처음 제대로 익히려면 [docs/guide.md](docs/guide.md)(lazyvim + tmux 사용자용 실전 가이드, Claude Code/Codex 활용 포함)부터 봅니다.
+빠른 참조는 [docs/cheatsheet.md](docs/cheatsheet.md), 작업별 운영 흐름은 [docs/usage-guide.md](docs/usage-guide.md)에 정리했습니다.
 
 ## 현재 장비 변경분 가져오기
 
