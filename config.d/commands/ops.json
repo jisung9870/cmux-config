@@ -5,9 +5,9 @@
     "keywords": [
       "terraform",
       "tf",
-      "tfplan",
-      "tfsum",
-      "tfapply"
+      "tfx",
+      "plan",
+      "apply"
     ],
     "workspace": {
       "name": "terraform-ops",
@@ -39,7 +39,7 @@
                     {
                       "type": "terminal",
                       "name": "plan",
-                      "command": "printf 'Terraform flow:\\n  bb tfplan\\n  bb tfsum tree\\n  bb tfsum md plan-summary.md\\n  bb tfapply session 15\\n  bb tfapply\\n\\n'; exec ${SHELL:-/bin/zsh} -l"
+                      "command": "printf 'Terraform flow:\\n  bb tfx plan\\n  bb tfx sum tree\\n  bb tfx sum md plan-summary.md\\n  bb tfx session 15\\n  bb tfx apply\\n\\n'; exec ${SHELL:-/bin/zsh} -l"
                     }
                   ]
                 }
@@ -85,7 +85,7 @@
                 {
                   "type": "terminal",
                   "name": "context",
-                  "command": "printf 'Kubernetes context:\\n  bb kctx\\n  bb kns\\n  kubectl config current-context\\n\\n'; exec ${SHELL:-/bin/zsh} -l",
+                  "command": "printf 'Kubernetes context:\\n  bb kx ctx\\n  bb kx ns\\n  kubectl config current-context\\n\\n'; exec ${SHELL:-/bin/zsh} -l",
                   "focus": true
                 }
               ]
@@ -101,7 +101,7 @@
                     {
                       "type": "terminal",
                       "name": "logs",
-                      "command": "printf 'Kubernetes logs:\\n  bb klog\\n  bb klog -n <namespace>\\n\\n'; exec ${SHELL:-/bin/zsh} -l"
+                      "command": "printf 'Kubernetes logs:\\n  bb kx log\\n  bb kx log -n <namespace>\\n\\n'; exec ${SHELL:-/bin/zsh} -l"
                     }
                   ]
                 }
@@ -112,7 +112,7 @@
                     {
                       "type": "terminal",
                       "name": "shell",
-                      "command": "printf 'Kubernetes shell/port-forward:\\n  bb kexec\\n  bb kpf\\n  kubectl get pods -A\\n\\n'; exec ${SHELL:-/bin/zsh} -l"
+                      "command": "printf 'Kubernetes shell/port-forward:\\n  bb kx exec\\n  bb kx pf\\n  kubectl get pods -A\\n\\n'; exec ${SHELL:-/bin/zsh} -l"
                     }
                   ]
                 }

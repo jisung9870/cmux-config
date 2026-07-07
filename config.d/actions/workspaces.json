@@ -65,9 +65,9 @@
     "subtitle": "Open Terraform plan and apply workflow panes",
     "keywords": [
       "terraform",
-      "tfplan",
-      "tfsum",
-      "tfapply"
+      "tfx",
+      "plan",
+      "apply"
     ],
     "commandName": "Terraform Ops",
     "icon": {

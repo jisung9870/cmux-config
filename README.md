@@ -80,8 +80,8 @@ Command Palette에서 바로 열 수 있는 전역 작업판을 관리합니다:
 - `Open Neovim Config`: `~/.config/nvim`에서 설정과 help 문서 작업을 엽니다.
 - `Go Dev`: 현재 디렉토리 기준 Go 편집/테스트 작업판을 엽니다.
 - `Python Dev`: 현재 디렉토리 기준 Python venv/pytest 작업판을 엽니다.
-- `Terraform Ops`: 현재 디렉토리 기준 `bb tfplan`, `bb tfsum`, `bb tfapply` 흐름을 엽니다.
-- `Kubernetes Ops`: 현재 디렉토리 기준 `bb kctx`, `bb kns`, `bb klog`, `bb kexec`, `bb kpf` 힌트 작업판을 엽니다.
+- `Terraform Ops`: 현재 디렉토리 기준 `bb tfx plan`, `bb tfx sum`, `bb tfx apply` 흐름을 엽니다.
+- `Kubernetes Ops`: 현재 디렉토리 기준 `bb kx ctx`, `bb kx ns`, `bb kx log`, `bb kx exec`, `bb kx pf` 힌트 작업판을 엽니다.
 
 Surface tab bar에는 기본 터미널/브라우저/split 버튼에 더해 `Codex`, `Claude`,
 `Binbox Doctor`를 둡니다. agent 실행은 권한 우회 플래그 없이 기본 명령만 사용합니다.

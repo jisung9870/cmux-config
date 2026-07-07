@@ -50,16 +50,16 @@ cmux ~/.config/nvim
 ### Terraform 작업
 
 - `Terraform Ops`를 module 또는 root repo에서 실행합니다.
-- 먼저 `bb tfplan`으로 plan을 만들고, `bb tfsum tree`로 변경을 훑습니다.
-- markdown 요약이 필요하면 `bb tfsum md plan-summary.md`를 사용합니다.
-- apply는 바로 실행하지 말고 `bb tfapply session 15`로 계정 확인 세션을 연 뒤 `bb tfapply`를 실행합니다.
+- 먼저 `bb tfx plan`으로 plan을 만들고, `bb tfx sum tree`로 변경을 훑습니다.
+- markdown 요약이 필요하면 `bb tfx sum md plan-summary.md`를 사용합니다.
+- apply는 바로 실행하지 말고 `bb tfx session 15`로 계정 확인 세션을 연 뒤 `bb tfx apply`를 실행합니다.
 
 ### Kubernetes 점검
 
 - `Kubernetes Ops`를 실행합니다.
-- context pane에서 `bb kctx`, `bb kns`로 대상 환경을 정합니다.
-- logs pane에서 `bb klog` 또는 `bb klog -n <namespace>`로 로그를 봅니다.
-- shell pane에서 `bb kexec`, `bb kpf`, `kubectl get pods -A`를 실행합니다.
+- context pane에서 `bb kx ctx`, `bb kx ns`로 대상 환경을 정합니다.
+- logs pane에서 `bb kx log` 또는 `bb kx log -n <namespace>`로 로그를 봅니다.
+- shell pane에서 `bb kx exec`, `bb kx pf`, `kubectl get pods -A`를 실행합니다.
 
 ### binbox 도구 개발
 

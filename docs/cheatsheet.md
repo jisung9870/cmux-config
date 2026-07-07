@@ -44,8 +44,8 @@ agent action은 권한 우회 플래그를 넣지 않습니다. 각 agent의 기
 | `Open Neovim Config` | `~/.config/nvim` | LazyVim 설정, help 문서, editor workflow 정리 |
 | `Go Dev` | 현재 디렉토리 | Go 편집, 테스트, 로그 확인 |
 | `Python Dev` | 현재 디렉토리 | venv 선택, pytest, lint 확인 |
-| `Terraform Ops` | 현재 디렉토리 | `bb tfplan`, `bb tfsum`, `bb tfapply` 흐름 |
-| `Kubernetes Ops` | 현재 디렉토리 | `bb kctx`, `bb kns`, `bb klog`, `bb kexec`, `bb kpf` 흐름 |
+| `Terraform Ops` | 현재 디렉토리 | `bb tfx plan`, `bb tfx sum`, `bb tfx apply` 흐름 |
+| `Kubernetes Ops` | 현재 디렉토리 | `bb kx ctx`, `bb kx ns`, `bb kx log`, `bb kx exec`, `bb kx pf` 흐름 |
 
 fzf 기반 명령은 workspace가 열릴 때 자동 실행하지 않습니다. pane 안에 힌트만 띄우고, 필요한 시점에 직접 실행합니다.
 
@@ -75,8 +75,8 @@ cmux open README.md
 
 - Go: `Go Dev` 열기 → `nvim`에서 수정 → shell pane에서 `go test ./...`.
 - Python: `Python Dev` 열기 → `.venv` 확인 → `python -m pytest`.
-- Terraform: `Terraform Ops` 열기 → `bb tfplan` → `bb tfsum tree` → 필요 시 `bb tfapply session 15`.
-- Kubernetes: `Kubernetes Ops` 열기 → `bb kctx`/`bb kns` → `bb klog` 또는 `bb kexec`.
+- Terraform: `Terraform Ops` 열기 → `bb tfx plan` → `bb tfx sum tree` → 필요 시 `bb tfx session 15`.
+- Kubernetes: `Kubernetes Ops` 열기 → `bb kx ctx`/`bb kx ns` → `bb kx log` 또는 `bb kx exec`.
 - 도구 개발: `Open binbox` 열기 → `bb check` → 테스트/문서 수정.
 - 에디터 설정: `Open Neovim Config` 열기 → `:help nvim-devops-workflow`.
 
